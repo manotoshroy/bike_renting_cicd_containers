@@ -1,0 +1,11 @@
+uvicorn>=0.16.0,<0.18.0
+fastapi
+requests>=2.23.0,<2.24.0
+pydantic
+pydantic-settings
+numpy==2.2.2
+bike_renting_model-0.0.1-py3-none-any.whl
+
+# If uploded your package in PyPI then use the given below
+#bike_renting_model==0.0.1
+
