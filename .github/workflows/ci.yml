@@ -26,8 +26,8 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        #pip install -r requirements/requirements.txt
         cd bike_renting_model
+        pip install -r requirements/requirements.txt
         if [ -f requirements/requirements.txt ]; then pip install -r requirements/requirements.txt; fi
         #working-directory: bike_renting_model
     - name: Train the model and save the model
@@ -51,10 +51,10 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        #pip install -r requirements/requirements.txt
-        #cd bike_renting_model
+        pip install -r requirements/requirements.txt
+        cd bike_renting_model
         if [ -f requirements/requirements.txt ]; then pip install -r requirements/requirements.txt; fi
-        working-directory: bike_renting_model
+        #working-directory: bike_renting_model
     - uses: actions/download-artifact@v4
       with:
         name: my-trained-pipeline
