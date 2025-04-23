@@ -78,7 +78,9 @@ jobs:
     - name: Install Build Dependencies
       run: pip install --upgrade build
     - name: Build the model
-      run: python -m build
+      run: |
+        cd bike_renting_model
+        python -m build
     - uses: actions/upload-artifact@v4
       with:
         name: bike-renting-model-package
