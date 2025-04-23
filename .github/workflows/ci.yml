@@ -61,4 +61,26 @@ jobs:
         path: bike_renting_model/model/trained_models
     - name: Test the model with pytest
       run: pytest
-    
+
+  build:
+    needs: [train, test]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.12'
+    - uses: actions/download-artifact@v4
+      with:
+        name: my-trained-pipeline
+        path: bike_renting_model/model/trained_models
+    - name: Install Build Dependencies
+      run: pip install --upgrade build
+    - name: Build the model
+      run: python -m build
+    - uses: actions/upload-artifact@v4
+      with:
+        name: bike-renting-model-package
+        path: dist/*.whl
+        retention-days: 1
