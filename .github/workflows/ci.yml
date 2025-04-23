@@ -84,7 +84,8 @@ jobs:
     - uses: actions/upload-artifact@v4
       with:
         name: bike-renting-model-package
-        path: dist/*.whl
+        path: bike_renting_model/dist/*.whl
+        if-no-files-found: error
         retention-days: 1
         
   push-image:
