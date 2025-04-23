@@ -108,7 +108,9 @@ jobs:
     - name: Build Docker Image for the API application
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
-      run: docker build . -f bike_renting_model_api/Dockerfile -t $DOCKER_USER/bike_renting_api:latest
+      run: |
+        cd bike_renting_model_api
+        docker build . -f Dockerfile -t $DOCKER_USER/bike_renting_api:latest
     - name: Push Docker Image 
       env:
         DOCKER_USER: ${{secrets.DOCKERHUB_USERNAME}}
