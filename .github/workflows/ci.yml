@@ -31,7 +31,9 @@ jobs:
         if [ -f requirements/requirements.txt ]; then pip install -r requirements/requirements.txt; fi
         #working-directory: bike_renting_model
     - name: Train the model and save the model
-      run: python model/train_pipeline.py
+      run: |
+        cd bike_renting_model
+        python model/train_pipeline.py
     - uses: actions/upload-artifact@v4
       with:
         name: my-trained-pipeline
